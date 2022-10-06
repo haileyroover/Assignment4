@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joe's hotdogs</title>
+    <meta name = 'viewport' content="width=device-width, initial-scale=1">
+    <style>
+        h1{
+            text-align: left;
+            display: inline-block;
+            color: rgb(144, 28, 28);
+        }
+        table{
+            text-align: center;
+            border-collapse: collapse;
+            border: 2px solid #0a0909;
+            width: 40%;
+        }
+        th{
+            text-align: center;
+            border-collapse: collapse;
+            border: 2px solid #800000;
+            padding-top: 10px;
+        }
+        td{
+            text-align: center;
+            border-collapse: collapse;
+            border: 2px solid #800000;
+            padding-top: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id='header', class="no-mobile">
+        <h1>Joe's Hotdog Stand</h1>
+        <h2> Menu: </h2>
+    </div>
+    <div>
+        <table id="prices_table" >
+          <tr>
+            <th>Food Item</th>
+            <th>Price</th>
+          </tr>
+          <tr>
+            <td>Hot Dog</td>
+            <td>$4.25</td>
+          </tr>
+          <tr>
+            <td>French Fries</td>
+            <td>$2.60</td>
+          </tr>
+          <tr>
+            <td>Soda</td>
+            <td>$1.50</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <h3> My Order: </h3>
+      </div>
+    <div id = "table">
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td>Hotdogs</td>
+                <td id="dogqt"> </td>
+                <td id="dogtot"> </td>
+            </tr>
+            <tr>
+                <td>Fries</td>
+                <td id="friesqt">&nbsp;</td>
+                <td id="friestot">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Soda</td>
+                <td id="sodaqt">&nbsp;</td>
+                <td id="sodatot">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Subtotal</td>
+                <td>&nbsp;</td>
+                <td id="subtot">&nbsp;</td>
+            </tr>
+            <tr>
+                <td id="discount">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td id="newtot">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Total after 6.25% sales tax: </td>
+                <td>&nbsp</td>
+                <td id="total">&nbsp;</td>
+            </tr>
+        </table>
+    
+    </div>
+    <script >
+        dogs = prompt("How many hotdogs would you like?");
+        document.getElementById("dogqt").innerHTML = dogs;
+        
+        fries = prompt("How many orders of fries would you like?");
+        document.getElementById("friesqt").innerHTML = fries;
+        
+        soda = prompt("How many sodas would you like?");
+        document.getElementById("sodaqt").innerHTML = soda;
+        
+        dogprice = (dogs * 4.25);
+        document.getElementById("dogtot").innerHTML = dogprice.toFixed(2);
+        
+        friesprice = (fries * 2.60);
+        document.getElementById("friestot").innerHTML = friesprice.toFixed(2);
+        
+        sodaprice = (soda * 1.50);
+        document.getElementById("sodatot").innerHTML = sodaprice.toFixed(2);
+        
+        subtotal = dogprice + friesprice + sodaprice;
+        document.getElementById("subtot").innerHTML = subtotal.toFixed(2);
+        
+        if (subtotal >= 20){
+            document.getElementById("discount").innerHTML = "10% discount on orders over $20:";
+            subtotal = subtotal - (subtotal * .1);
+            document.getElementById("newtot").innerHTML = subtotal.toFixed(2);
+        }
+        
+        total = subtotal + (subtotal * .0625);
+        document.getElementById("total").innerHTML = total.toFixed(2);
+    </script>
+    
+</body>
+</html>
